@@ -17,7 +17,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install
+          cache: npm
+      - run: npm ci
       - run: mkdir -p out
       - run: npx remotion render src/index.ts BarterBreakdown out/barter-breakdown-1080x1920.mp4
       - uses: actions/upload-artifact@v4
