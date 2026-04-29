@@ -1,0 +1,20 @@
+{
+  "name": "barter-breakdown-remotion",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "render:vertical": "remotion render src/index.ts BarterBreakdown out/barter-breakdown-1080x1920.mp4",
+    "render:horizontal": "remotion render src/index.ts BarterBreakdownHorizontal out/barter-breakdown-1920x1080.mp4",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/google-fonts": "^4.0.250",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "^4.0.250"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "^20.19.0"
+  }
+}
