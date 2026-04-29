@@ -1,0 +1,26 @@
+name: Render Barter Breakdown
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [work, main, master]
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - '.github/workflows/render.yml'
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: mkdir -p out
+      - run: npx remotion render src/index.ts BarterBreakdown out/barter-breakdown-1080x1920.mp4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: barter-breakdown-renders
+          path: out/*.mp4
